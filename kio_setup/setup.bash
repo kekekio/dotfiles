@@ -1,8 +1,6 @@
 #!/bin/bash
 # \brief setup all env vars
 
-mkdir -p "$HOME/mnt{build_server,bmc,ssh}"
-mkdir -p "$HOME/mnt/ssh{0..9}"
 export MOUNT_FUSE_DIR="$HOME/mnt"
 CONFIG_PATH="$HOME/.config/kio_setup/servers.json"
 SERVERS_JSON=$(cat "$CONFIG_PATH")
@@ -39,11 +37,14 @@ export -f connect_builder
 export -f mount_builder
 export -f umount_builder
 
-
+function mount_bmc() {
+	ssh-lan-connect-mount.sh 0penBmc /home/kio/mnt/bmc
+}
 function umount_bmc() {
 	sudo umount -l "$HOME/mnt/bmc"
 }
-export -f connect_builder
+export -f mount_bmc
+export -f umount_bmc
 
 #source $fullfile
 

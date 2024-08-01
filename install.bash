@@ -17,6 +17,9 @@ ln -s "$SCRIPT_DIR/nvim/" "$HOME/.config/"
 
 ln -s "$SCRIPT_DIR/$CONFIG_NAME/" "$HOME/.config/"
 
+mkdir -p "$HOME/mnt/"{build_server,bmc,ssh}
+mkdir -p "$HOME/mnt/ssh/"{0..9}
+
 FILE_NAME=".bashrc"
 ln -sf "$SCRIPT_DIR/$CONFIG_NAME/$FILE_NAME" "$HOME/$FILE_NAME"
 
