@@ -13,7 +13,12 @@ FILE_NAME=".tmux.conf"
 ln -sf "$SCRIPT_DIR/tmux/$FILE_NAME" "$HOME/$FILE_NAME"
 tmux source-file "$HOME/.tmux.conf"
 
+# link ./nvim/ to ~/.config/nvim/
 ln -s "$SCRIPT_DIR/nvim/" "$HOME/.config/"
+
+# link ./bin/ to ~/.local/bin/
+mkdir -p $HOME/.local/
+ln -s "$SCRIPT_DIR/bin/" "$HOME/.local/"
 
 ln -s "$SCRIPT_DIR/$CONFIG_NAME/" "$HOME/.config/"
 
