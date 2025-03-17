@@ -17,7 +17,7 @@ plugins=(
   bashmarks
 )
 #===============================CONFIG========================================
-source $HOME/.config/kio_setup/*.env
+for f in $HOME/.config/kio_setup/*.env; do source $f; done
 alias use-snap="export PATH=$PATH:/var/lib/snapd/snap/bin"
 backup_folder="/home/kio/backup/apps/bash/"
 alias winmnt="sudo mount /dev/nvme0n1p3 /mnt"
