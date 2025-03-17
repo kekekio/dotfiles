@@ -8,33 +8,33 @@ SERVERS_JSON=$(cat "$CONFIG_PATH")
 
 ALICE_SERVER_IP=$(jq ".alice_server.ip" -r <<< $SERVERS_JSON)
 ALICE_SERVER_USERNAME=$(jq ".alice_server.username" -r <<< $SERVERS_JSON)
-function connect_alice() {
+function kio_connect_alice() {
 	ssh $ALICE_SERVER_USERNAME@$ALICE_SERVER -t tmux attach-session
 }
-function mount_alice() {
+function kio_mount_alice() {
 	ALICE_MOUNT_POINT="$MOUNT_FUSE_DIR/ssh/0"
 	sshfs -o allow_other $ALICE_SERVER_USERNAME@$ALICE_SERVER:/ $ALICE_MOUNT_POINT
 }
-function umount_alice() {
+function kio_umount_alice() {
 	sudo umount -l $ALICE_MOUNT_POINT
 }
 
 
 export BUILDER_SERVER_IP=$(jq ".build_server.ip" -r <<< $SERVERS_JSON)
-function connect_builder() {
+function kio_connect_builder() {
 	ssh $BUILDER_SERVER_IP -t tmux attach-session
 }
-function mount_builder() {
+function kio_mount_builder() {
 	sshfs -o allow_other $BUILDER_SERVER_IP:/ $MOUNT_FUSE_DIR/build_server/
 }
-function umount_builder() {
+function kio_umount_builder() {
 	sudo umount -l $MOUNT_FUSE_DIR/build_server/
 }
 
-function mount_bmc() {
+function kio_mount_bmc() {
 	ssh-lan-connect-mount.sh 0penBmc /home/kio/mnt/bmc
 }
-function umount_bmc() {
+function kio_umount_bmc() {
 	sudo umount -l "$HOME/mnt/bmc"
 }
 
