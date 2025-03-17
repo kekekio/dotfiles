@@ -5,14 +5,14 @@ local o = vim.opt
 vim.g.mapleader = " "
 
 o.number = true -- Print the line number in front of each line
-o.relativenumber = true -- Show the line number relative to the line with the cursor in front of each line.
+o.relativenumber = false -- Show the line number relative to the line with the cursor in front of each line.
 o.clipboard = "unnamedplus" -- uses the clipboard register for all operations except yank.
 o.syntax = "on" -- When this option is set, the syntax with this name is loaded.
 o.autoindent = true -- Copy indent from current line when starting a new line.
 o.cursorline = true -- Highlight the screen line of the cursor with CursorLine.
 o.expandtab = true -- In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
-o.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent.
-o.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for.
+o.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent.
+o.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for.
 o.encoding = "UTF-8" -- Sets the character encoding used inside Vim.
 o.ruler = true -- Show the line and column number of the cursor position, separated by a comma.
 o.mouse = "" -- Enable the use of the mouse. "a" you can use on all modes
@@ -27,11 +27,14 @@ o.splitright = true
 o.splitbelow = true -- When on, splitting a window will put the new window below the current one
 o.termguicolors = true
 
+-- tabs setup `Ctrl+h` -previous `ctrl+l` -next `ctrl+w n` - new window
 -- nnoremap <C-h> :tabprevious<CR>
--- nnoremap <C-l> :tabnext<CR>
 local keymap = vim.keymap -- for conciseness
 keymap.set({"n", "v", "x"}, '<C-h>', ':tabprevious<CR>')
+-- nnoremap <C-l> :tabnext<CR>
 keymap.set({"n", "v", "x"}, '<C-l>', ':tabnext<CR>')
 keymap.set({"n", "v", "x"}, '<C-w>n', ':tabnew<CR>')
--- delete single character without copying into register
-keymap.set("n", "x", '"_x')
+
+keymap.set("n", "x", '"_x') -- delete single character without copying into register
+ -- bind `ctrl + /` (ctrl slash)
+-- keymap.set({"n", "v", "x"}, '<C-_>', ':CommentToggle<CR>')
