@@ -18,6 +18,9 @@ FILE_NAME=".tmux.conf"
 ln -sf "$SCRIPT_DIR/tmux/$FILE_NAME" "$HOME/$FILE_NAME"
 tmux source-file "$HOME/.tmux.conf"
 
+# link ./tmux/tmux-plugin-manager to ~/.config/.tmux
+ln -s "$SCRIPT_DIR/tmux/tmux-plugin-manager/" "$HOME/.config/"
+
 # link ./nvim/ to ~/.config/nvim/
 ln -s "$SCRIPT_DIR/nvim/" "$HOME/.config/"
 
