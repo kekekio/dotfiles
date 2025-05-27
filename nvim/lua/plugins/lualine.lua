@@ -34,7 +34,7 @@ return {
               if vim.bo.modified then
                 return { fg = '#ffffff', bg = '#ff5f5f', gui = 'bold' }
               else
-                return { fg = '#ffffff', bg = '#000000' }
+                return { fg = '#ffffff', bg = '#111111' }
               end
             end,
             symbols = {
