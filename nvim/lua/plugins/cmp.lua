@@ -6,15 +6,6 @@ local M = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-path",
-    {
-      "zbirenbaum/copilot-cmp",
-      dependencies = "copilot.lua",
-      opts = {},
-      config = function(_, opts)
-        local copilot_cmp = require("copilot_cmp")
-        copilot_cmp.setup(opts)
-      end,
-    },
   },
   opts = function()
     local cmp = require("cmp")
@@ -84,7 +75,6 @@ local M = {
       }),
       sources = {
         { name = "nvim_lsp" },
-        { name = "copilot" },
         { name = "path" },
         { name = "buffer" },
       },

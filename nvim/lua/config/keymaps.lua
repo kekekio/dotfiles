@@ -30,11 +30,11 @@ o.termguicolors = true
 -- tabs setup `Ctrl+h` -previous `ctrl+l` -next `ctrl+w n` - new window
 -- nnoremap <C-h> :tabprevious<CR>
 local keymap = vim.keymap -- for conciseness
-keymap.set({"n", "v", "x"}, '<C-h>', ':tabprevious<CR>')
 -- nnoremap <C-l> :tabnext<CR>
+keymap.set({"n", "v", "x"}, '<C-h>', ':tabprevious<CR>')
 keymap.set({"n", "v", "x"}, '<C-l>', ':tabnext<CR>')
 keymap.set({"n", "v", "x"}, '<C-w>n', ':tabnew<CR>')
 
 keymap.set("n", "x", '"_x') -- delete single character without copying into register
- -- bind `ctrl + /` (ctrl slash)
+-- bind `ctrl + /` (ctrl slash)
 -- keymap.set({"n", "v", "x"}, '<C-_>', ':CommentToggle<CR>')
