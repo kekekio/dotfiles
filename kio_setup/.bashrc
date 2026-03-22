@@ -7,7 +7,7 @@ export CMAKE_VERBOSE_MAKEFILE=ON
 export GCC_COLORS=1
 export CLANG_FORCE_COLOR_DIAGNOSTICS=1
 export CLICOLOR_FORCE=1
-GRC_ALIASES=true
+#GRC_ALIASES=true
 [[ -s "/etc/profile.d/grc.sh" ]] && source /etc/profile.d/grc.sh
 alias grc="grc -es --colour=auto --config=$HOME/dev/dotfiles/kio_setup/grc.conf"
 #===============================CONFIG========================================

@@ -23,29 +23,12 @@ M.setup = function()
 	})
 
 	---- sign column
-  local signs = require("utils").lsp_signs
+	local signs = require("utils").lsp_signs
 
-  local diagnostic_signs = {}
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    diagnostic_signs[type] = { text = icon, texthl = hl, numhl = hl }
-  end
-
-  vim.diagnostic.config({
-    virtual_text = false,
-    float = {
-      focusable = false,
-      style = "minimal",
-      border = "rounded",
-      source = "always",
-      header = "",
-      prefix = "",
-    },
-    signs = diagnostic_signs,  -- передаём сюда
-    underline = true,
-    update_in_insert = true,
-    severity_sort = false,
-  })
+	for type, icon in pairs(signs) do
+		local hl = "DiagnosticSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	end
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
